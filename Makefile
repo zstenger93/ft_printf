@@ -6,15 +6,11 @@
 #    By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/01 16:50:59 by zstenger          #+#    #+#              #
-#    Updated: 2022/11/01 16:58:14 by zstenger         ###   ########.fr        #
+#    Updated: 2022/11/05 11:56:35 by zstenger         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC		=	ft_printf.c ft_
-			./utils/ft_strlen.c \
-			./utils/ft_putchar.c \
-			./utils/ft_putstr.c \
-			./utils/ft_putnbr.c \
+SRC		=	ft_printf.c
 
 OBJS	=	$(SRC:.c=.o)
 
