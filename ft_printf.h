@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 11:31:55 by zstenger          #+#    #+#             */
-/*   Updated: 2022/11/05 15:45:28 by zstenger         ###   ########.fr       */
+/*   Updated: 2022/11/07 13:42:46 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,10 @@
 int		ft_printf(const char *format, ...);
 
 //utils
-int		ft_check_format(const char *str, va_list arg, int index, int *str_len);
+int		ft_check_format(va_list arg, int type, int *str_len);
+void	ft_print_hex(unsigned long number, char *hex_format, int *str_len);
 void	ft_putchar(char c, int *str_len);
 void	ft_putstr(char *s, int *str_len);
-void	ft_putnbr(long long int n, int *str_len);
-void	ft_print_hex(unsigned long i, char *hex, int *str_len);
-//size_t	ft_strlen(const char *s);
+void	ft_putnbr(long long int number, int *str_len);
 
 #endif

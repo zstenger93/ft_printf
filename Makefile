@@ -6,26 +6,30 @@
 #    By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/01 16:50:59 by zstenger          #+#    #+#              #
-#    Updated: 2022/11/05 11:56:35 by zstenger         ###   ########.fr        #
+#    Updated: 2022/11/07 14:13:49 by zstenger         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC		=	ft_printf.c
+NAME=libftprintf.a
 
-OBJS	=	$(SRC:.c=.o)
+CC=cc
 
-CC		=	gcc
+CFLAGS= -Wall -Wextra -Werror
 
-RM		=	rm -f
+SRC= ft_printf.c ft_check_format.c ft_print_hex.c ft_putchar.c ft_putstr.c \
+	 ft_putnbr.c
 
-FLAGS	=	-Wall -Wextra -Werror
+OBJS=$(SRC:.c=.o)
 
-NAME	=	libftprintf.a
+RM=	rm -f
 
-all:	$(NAME)
+all: $(NAME)
 
-$(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+$(NAME) : $(OBJS)
+	ar rcs $(NAME) $(OBJS) $?
+	
+%.o : %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	$(RM) $(OBJS)
@@ -34,6 +38,5 @@ fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
-	$(NAME)
 
 .PHONY: all clean fclean re
