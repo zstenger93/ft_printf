@@ -6,14 +6,14 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 11:40:01 by zstenger          #+#    #+#             */
-/*   Updated: 2022/11/10 17:48:51 by zstenger         ###   ########.fr       */
+/*   Updated: 2022/11/10 19:18:22 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"ft_printf.h"
 
 /*
-checking for the conversion type with type_specifier of the format in the
+checking for the conversion type with conversion_type of the format in the
 arguments and applies the correct function to print out the result
 0x is the prefix for hexadecimals and used it to get the same
 output as printf while printing pointers
@@ -28,26 +28,25 @@ output as printf while printing pointers
 • %X Prints a number in hexadecimal (base 16) uppercase format.
 • %% Prints a percent sign.
 */
-int	ft_check_format(va_list args, char type_specifier, int *input_len)
+void	ft_check_format(va_list args, char conversion_type, int *input_len)
 {
-	if (type_specifier == '%')
+	if (conversion_type == '%')
 		ft_putchar('%', input_len);
-	else if (type_specifier == 'c')
+	else if (conversion_type == 'c')
 		ft_putchar(va_arg(args, int), input_len);
-	else if (type_specifier == 's')
+	else if (conversion_type == 's')
 		ft_putstr(va_arg(args, char *), input_len);
-	else if (type_specifier == 'p')
+	else if (conversion_type == 'p')
 	{
 		ft_putstr("0x", input_len);
 		ft_print_hex(va_arg(args, unsigned long), HEX_LC, input_len);
 	}
-	else if (type_specifier == 'd' || type_specifier == 'i')
+	else if (conversion_type == 'd' || conversion_type == 'i')
 		ft_putnbr(va_arg(args, int), input_len);
-	else if (type_specifier == 'u')
+	else if (conversion_type == 'u')
 		ft_putnbr(va_arg(args, unsigned int), input_len);
-	else if (type_specifier == 'x')
+	else if (conversion_type == 'x')
 		ft_print_hex(va_arg(args, unsigned int), HEX_LC, input_len);
-	else if (type_specifier == 'X')
+	else if (conversion_type == 'X')
 		ft_print_hex(va_arg(args, unsigned int), HEX_UC, input_len);
-	return (0);
 }
