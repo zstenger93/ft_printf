@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 12:13:51 by zstenger          #+#    #+#             */
-/*   Updated: 2022/11/07 13:43:31 by zstenger         ###   ########.fr       */
+/*   Updated: 2022/11/10 15:48:18 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,19 @@ print out null if no string after the format specifier
 or print the length of the string until the terminating
 null
 */
-void	ft_putstr(char *s, int *str_len)
+void	ft_putstr(char *str, int *input_len)
 {
-	int	len;
+	int	length;
 
-	if (!s)
+	if (!str)
 	{
-		ft_putstr("(null)", str_len);
+		ft_putstr("(null)", input_len);
 		return ;
 	}
-	len = 0;
-	while (s[len] != '\0')
+	length = 0;
+	while (str[length] != '\0')
 	{
-		ft_putchar(s[len], str_len);
-		len++;
+		ft_putchar(str[length], input_len);
+		length++;
 	}
 }
