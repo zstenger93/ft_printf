@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 11:53:13 by zstenger          #+#    #+#             */
-/*   Updated: 2022/11/10 19:21:15 by zstenger         ###   ########.fr       */
+/*   Updated: 2022/11/11 14:54:06 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ int	ft_printf(const char *format, ...)
 	output = 0;
 	index = 0;
 	input_len = &output;
-	if (!format)
-		return (0);
+	if (!format || (format[index] == '%' && !format[index + 1]))
+		return (-1);
 	while (format[index] != '\0')
 	{
 		if (format[index] == '%')
@@ -49,9 +49,14 @@ int	ft_printf(const char *format, ...)
 /*
 int main(void)
 {
+	int ret1;
+	int ret2;
+	
 	char str1[] = "This is the first format specifier#&.';?/!\n";
-	ft_printf("MY PRINTF:\n%s", str1);
-	printf("ORIGINAL PRINTF:\n%s", str1);
+	ret1 = ft_printf("%s", str1);
+	ret2 = printf("%s", str1);
+	printf("Here the return of ft_printf: 	%d\n", ret1);
+	printf("Here the return of printf: 	%d\n", ret2);
 
 	int i = -2147483648;
 	int j = 2147483647;
@@ -66,18 +71,24 @@ int main(void)
 	ptr3 = &l;
 	ptr4 = NULL;
 
-	ft_printf("MY PRINTF:\n%p\n%p\n%p\n%p\n", ptr1, ptr2, ptr3, ptr4);
-	printf("ORIGINAL PRINTF:\n%p\n%p\n%p\n%p\n", ptr1, ptr2, ptr3, ptr4);
+	ret1 = ft_printf("%p\n%p\n%p\n%p\n", ptr1, ptr2, ptr3, ptr4);
+	ret2 = printf("%p\n%p\n%p\n%p\n", ptr1, ptr2, ptr3, ptr4);
+	printf("Here the return of ft_printf: 	%d\n", ret1);
+	printf("Here the return of printf: 	%d\n", ret2);
 
 	i = -2147483648;
 	j = 2147483647;
 	l = 0;
 
-	ft_printf("MY PRINTF:\n%d\n%d\n%d\n", i, j, l);
-	printf("ORIGINAL PRINTF:\n%d\n%d\n%d\n", i, j, l);
+	ret1 = ft_printf("%d\n%d\n%d\n", i, j, l);
+	ret2 = printf("%d\n%d\n%d\n", i, j, l);
+	printf("Here the return of ft_printf: 	%d\n", ret1);
+	printf("Here the return of printf: 	%d\n", ret2);
 
-	ft_printf("MY PRINTF:\n%i\n%i\n%i\n", i, j, l);
-	printf("ORIGINAL PRINTF:\n%i\n%i\n%i\n", i, j, l);
+	ret1 = ft_printf("%i\n%i\n%i\n", i, j, l);
+	ret2 = printf("%i\n%i\n%i\n", i, j, l);
+	printf("Here the return of ft_printf: 	%d\n", ret1);
+	printf("Here the return of printf: 	%d\n", ret2);
 
 	unsigned int k;
 	
@@ -85,21 +96,29 @@ int main(void)
 	j = 0;
 	k = 4294967295;
 
-	ft_printf("MY PRINTF:\n%u\n%u\n%u\n", i, j, k);
-	printf("ORIGINAL PRINTF:\n%u\n%u\n%u\n", i, j, k);
+	ret1 = ft_printf("%u\n%u\n%u\n", i, j, k);
+	ret2 = printf("%u\n%u\n%u\n", i, j, k);
+	printf("Here the return of ft_printf: 	%d\n", ret1);
+	printf("Here the return of printf: 	%d\n", ret2);
 
 	i = -2147483648;
 	j = 0;
 	k = 42949627;
 	
-	ft_printf("MY PRINTF:\n%x\n%x\n%x\n", i, j, k);
-	printf("ORIGINAL PRINTF:\n%x\n%x\n%x\n", i, j, k);
+	ret1 = ft_printf("%x\n%x\n%x\n", i, j, k);
+	ret2 = printf("%x\n%x\n%x\n", i, j, k);
+	printf("Here the return of ft_printf: 	%d\n", ret1);
+	printf("Here the return of printf: 	%d\n", ret2);
 
-	ft_printf("MY PRINTF:\n%X\n%X\n%X\n", i, j, k);
-	printf("ORIGINAL PRINTF:\n%X\n%X\n%X\n", i, j, k);
+	ret1 = ft_printf("%X\n%X\n%X\n", i, j, k);
+	ret2 = printf("%X\n%X\n%X\n", i, j, k);
+	printf("Here the return of ft_printf: 	%d\n", ret1);
+	printf("Here the return of printf: 	%d\n", ret2);
 
-	ft_printf("MY PRINTF:\n%% %%%% %%\n");
-	printf("ORIGINAL PRINTF:\n%% %%%% %%\n");
+	ret1 = ft_printf("%% %%%% %%\n");
+	ret2 = printf("%% %%%% %%\n");
+	printf("Here the return of ft_printf: 	%d\n", ret1);
+	printf("Here the return of printf: 	%d\n", ret2);
 	
 	return (0);
 }
