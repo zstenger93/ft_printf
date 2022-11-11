@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 12:13:04 by zstenger          #+#    #+#             */
-/*   Updated: 2022/11/10 18:06:21 by zstenger         ###   ########.fr       */
+/*   Created: 2022/11/07 12:13:51 by zstenger          #+#    #+#             */
+/*   Updated: 2022/11/11 18:40:31 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"ft_printf.h"
 
 /*
-if the number is smaller than 0 print the minus sign and
-take it off from the number by multiplying it by -1
-and then print it after te sign with the 2nd if or the 
-else statement
+print out null if no string after the format specifier
+or print the length of the string until the terminating
+null
 */
-void	ft_putnbr(long int number, int *input_len)
+void	ft_pf_putstr(char *str, int *input_len)
 {
-	if (number < 0)
+	int	length;
+
+	if (!str)
 	{
-		ft_putchar('-', input_len);
-		number *= -1;
+		ft_pf_putstr("(null)", input_len);
+		return ;
 	}
-	if (number > 9)
+	length = 0;
+	while (str[length] != '\0')
 	{
-		ft_putnbr(number / 10, input_len);
-		ft_putchar(number % 10 + '0', input_len);
+		ft_pf_putchar(str[length], input_len);
+		length++;
 	}
-	else
-		ft_putchar(number + '0', input_len);
 }

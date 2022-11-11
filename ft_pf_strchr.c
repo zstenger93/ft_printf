@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_pf_strchr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 12:11:45 by zstenger          #+#    #+#             */
-/*   Updated: 2022/11/10 18:06:09 by zstenger         ###   ########.fr       */
+/*   Created: 2022/10/10 19:46:42 by zstenger          #+#    #+#             */
+/*   Updated: 2022/11/11 18:43:58 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"ft_printf.h"
 
-/*
-writing chars and calculating the length of the string
-*/
-void	ft_putchar(char c, int *input_len)
+char	*ft_pf_strchr(const char *s, int c)
 {
-	*input_len += write(1, &c, 1);
+	int	z;
+
+	z = 0;
+	while (s[z])
+	{
+		if (s[z] == (char)c)
+			return ((char *)(s + z));
+		z++;
+	}
+	if (s[z] == (char)c)
+		return ((char *)(s + z));
+	return (NULL);
 }

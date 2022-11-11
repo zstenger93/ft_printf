@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 11:53:13 by zstenger          #+#    #+#             */
-/*   Updated: 2022/11/11 14:54:06 by zstenger         ###   ########.fr       */
+/*   Updated: 2022/11/11 19:07:00 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 if its a plain text, print it out
 else checks for the type of conversion and applies it and print the result
 and for specifiers which I dont have.
+		// write(2, "error\n", 6);
 */
 int	ft_printf(const char *format, ...)
 {
@@ -33,7 +34,8 @@ int	ft_printf(const char *format, ...)
 		return (-1);
 	while (format[index] != '\0')
 	{
-		if (format[index] == '%')
+		if (format[index] == '%'
+			&& *ft_pf_strchr("cspdiuxX%", format[index + 1]))
 		{
 			index++;
 			ft_check_format(args, format[index], input_len);
@@ -49,9 +51,11 @@ int	ft_printf(const char *format, ...)
 /*
 int main(void)
 {
+	ft_printf("%");
+	
 	int ret1;
 	int ret2;
-	
+
 	char str1[] = "This is the first format specifier#&.';?/!\n";
 	ret1 = ft_printf("%s", str1);
 	ret2 = printf("%s", str1);
@@ -118,7 +122,10 @@ int main(void)
 	ret1 = ft_printf("%% %%%% %%\n");
 	ret2 = printf("%% %%%% %%\n");
 	printf("Here the return of ft_printf: 	%d\n", ret1);
-	printf("Here the return of printf: 	%d\n", ret2);
+	printf("Here the return of printf: 	%d\n\n\n", ret2);
+	
+	printf("CHECKING FOR LEAKS:\n\n");
+	system("leaks a.out");
 	
 	return (0);
 }

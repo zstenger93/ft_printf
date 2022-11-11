@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 11:40:01 by zstenger          #+#    #+#             */
-/*   Updated: 2022/11/11 14:09:41 by zstenger         ###   ########.fr       */
+/*   Updated: 2022/11/11 18:41:58 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,20 @@ output as printf while printing pointers
 void	ft_check_format(va_list args, char conversion_type, int *input_len)
 {
 	if (conversion_type == '%')
-		ft_putchar('%', input_len);
+		ft_pf_putchar('%', input_len);
 	else if (conversion_type == 'c')
-		ft_putchar(va_arg(args, int), input_len);
+		ft_pf_putchar(va_arg(args, int), input_len);
 	else if (conversion_type == 's')
-		ft_putstr(va_arg(args, char *), input_len);
+		ft_pf_putstr(va_arg(args, char *), input_len);
 	else if (conversion_type == 'p')
 	{
-		ft_putstr("0x", input_len);
+		ft_pf_putstr("0x", input_len);
 		ft_print_hex(va_arg(args, unsigned long), HEX_LC, input_len);
 	}
 	else if (conversion_type == 'd' || conversion_type == 'i')
-		ft_putnbr(va_arg(args, int), input_len);
+		ft_pf_putnbr(va_arg(args, int), input_len);
 	else if (conversion_type == 'u')
-		ft_putnbr(va_arg(args, unsigned int), input_len);
+		ft_pf_putnbr(va_arg(args, unsigned int), input_len);
 	else if (conversion_type == 'x')
 		ft_print_hex(va_arg(args, unsigned int), HEX_LC, input_len);
 	else if (conversion_type == 'X')
