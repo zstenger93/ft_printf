@@ -6,18 +6,19 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 11:53:13 by zstenger          #+#    #+#             */
-/*   Updated: 2022/11/11 19:07:00 by zstenger         ###   ########.fr       */
+/*   Updated: 2022/11/13 18:44:23 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"ft_printf.h"
 
 /*
-@param format if there is format(input) checks the type of it
-if its a plain text, print it out
+@param format->char string which contains plain chars, escape sequences
+and format specifications
+if there is format(input) checks the type of it
+if its a plain text, simply print it out
 else checks for the type of conversion and applies it and print the result
-and for specifiers which I dont have.
-		// write(2, "error\n", 6);
+
 */
 int	ft_printf(const char *format, ...)
 {
@@ -51,7 +52,7 @@ int	ft_printf(const char *format, ...)
 /*
 int main(void)
 {
-	ft_printf("%");
+	ft_printf("%% %");
 	
 	int ret1;
 	int ret2;

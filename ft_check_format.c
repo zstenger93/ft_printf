@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 11:40:01 by zstenger          #+#    #+#             */
-/*   Updated: 2022/11/11 18:41:58 by zstenger         ###   ########.fr       */
+/*   Updated: 2022/11/12 10:38:01 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /*
 checking for the conversion type with conversion_type of the format in the
-arguments and applies the correct function to print out the result
+input and applies the correct function to print out the result
 0x is the prefix for hexadecimals and used it to get the same
 output as printf while printing pointers
 

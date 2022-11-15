@@ -6,7 +6,7 @@
 #    By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/01 16:50:59 by zstenger          #+#    #+#              #
-#    Updated: 2022/11/11 18:41:31 by zstenger         ###   ########.fr        #
+#    Updated: 2022/11/11 20:45:48 by zstenger         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ CYAN = \033[0;96m
 all: $(NAME)
 
 $(NAME) : $(OBJS)
-	ar rcs $(NAME) $(OBJS) $?
+	ar rcs $(NAME) $(OBJS)
 	@echo "$(GREEN)Compilation successful.$(DEF_COLOR)"
 	
 %.o : %.c
