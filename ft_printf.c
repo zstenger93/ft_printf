@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 11:53:13 by zstenger          #+#    #+#             */
-/*   Updated: 2022/11/13 18:44:23 by zstenger         ###   ########.fr       */
+/*   Updated: 2022/12/06 20:10:55 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	ft_printf(const char *format, ...)
 /*
 int main(void)
 {
-	ft_printf("%% %");
+	ft_printf("hello%f");
 	
 	int ret1;
 	int ret2;
